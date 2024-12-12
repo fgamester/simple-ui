@@ -1,3 +1,7 @@
+:root {
+    --sui-btn-min-width: 100px;
+}
+
 #simple-modal {
     top: 0;
     left: 0;
@@ -5,7 +9,7 @@
     width: 100vw;
     height: 100vh;
     background-color: #0007;
-    animation: modal-bg-fade-in 300ms ease-in-out;
+    animation: sui-bg-fade-in 300ms ease-in-out;
     z-index: 999;
     display: flex;
     font-size: 20px;
@@ -28,8 +32,13 @@
     border-radius: 1em;
     width: min(400px, 95%);
     padding: 1.5em;
-    margin: 1em;
-    animation: sui-modal-pop-up 600ms ease-in-out 300ms, modal-delay 300ms steps(1);
+    margin: 0.5em;
+    gap: 1em;
+    animation: sui-modal-pop-up 600ms ease-in-out 300ms, sui-modal-delay 300ms steps(1);
+}
+
+#simple-modal>div>* {
+    margin: 0;
 }
 
 #simple-modal h3 {
@@ -37,10 +46,15 @@
 }
 
 #simple-modal button {
-    width: min(fit-content, 1000px);
+    font-size: 1em;
+    width: fit-content;
+    min-width: var(--sui-btn-min-width);
     color: #fff;
     user-select: none;
-    border-radius: 0.3em;
+    padding: 0.5em;
+    border-radius: 0.75em;
+    border-color: #000;
+    border-width: 1px;
 }
 
 #simple-modal button:hover {
@@ -48,7 +62,7 @@
 }
 
 #sui-btn-basic {
-    background-color: #0033ff;
+    background-color: #0055ff;
 }
 
 .sui-modal-position-center {
@@ -97,7 +111,7 @@
 }
 
 
-@keyframes modal-delay {
+@keyframes sui-modal-delay {
     from {
         visibility: hidden;
     }
@@ -129,7 +143,7 @@
     }
 }
 
-@keyframes modal-bg-fade-in {
+@keyframes sui-bg-fade-in {
     from {
         opacity: 0;
     }

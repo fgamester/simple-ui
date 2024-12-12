@@ -5,8 +5,9 @@ function App() {
 
   const showModal = useCallback(() => {
     simpleUI.modal({
-      title : 'Title',
-      text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, repellendus nostrum eius corrupti minima voluptate?"
+      title: 'Title',
+      text: 'Lorem ipsum dolor sit amet.',
+      buttonText: ''
     });
   });
 
