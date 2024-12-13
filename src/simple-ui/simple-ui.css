@@ -1,26 +1,26 @@
 :root {
     --sui-btn-min-width: 100px;
+    --fade-in-animation: sui-pop-up;
 }
 
-#simple-modal {
+#sui-modal {
     top: 0;
     left: 0;
     position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: #0007;
-    animation: sui-bg-fade-in 300ms ease-in-out;
     z-index: 999;
     display: flex;
     font-size: 20px;
 }
 
-#simple-modal {
+#sui-modal {
     font-family: 'Arial';
     color: #444;
 }
 
-#simple-modal>div {
+#sui-modal-body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,18 +34,17 @@
     padding: 1.5em;
     margin: 0.5em;
     gap: 1em;
-    animation: sui-modal-pop-up 600ms ease-in-out 300ms, sui-modal-delay 300ms steps(1);
 }
 
-#simple-modal>div>* {
+#sui-modal>div>* {
     margin: 0;
 }
 
-#simple-modal h3 {
+#sui-modal h3 {
     text-align: justify;
 }
 
-#simple-modal button {
+#sui-modal button {
     font-size: 1em;
     width: fit-content;
     min-width: var(--sui-btn-min-width);
@@ -57,12 +56,28 @@
     border-width: 1px;
 }
 
-#simple-modal button:hover {
+#sui-modal button:hover {
     cursor: pointer;
 }
 
 #sui-btn-basic {
     background-color: #0055ff;
+}
+
+.sui-anim-fade-in {
+    animation: sui-fade-in 300ms linear;
+}
+
+.sui-anim-fade-out {
+    animation: sui-fade-out 300ms linear;
+}
+
+.sui-anim-implode-out {
+    animation: sui-implode-out 300ms ease-in;
+}
+
+.sui-anim-pop-up {
+    animation: sui-pop-up 500ms ease-in-out 300ms, sui-delay 300ms steps(1);
 }
 
 .sui-modal-position-center {
@@ -110,8 +125,7 @@
     justify-content: end;
 }
 
-
-@keyframes sui-modal-delay {
+@keyframes sui-delay {
     from {
         visibility: hidden;
     }
@@ -121,7 +135,7 @@
     }
 }
 
-@keyframes sui-modal-pop-up {
+@keyframes sui-pop-up {
     from {
         transform: scale(0);
     }
@@ -143,12 +157,36 @@
     }
 }
 
-@keyframes sui-bg-fade-in {
+@keyframes sui-implode-out {
+    from {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(0)
+    }
+}
+
+@keyframes sui-fade-in {
     from {
         opacity: 0;
     }
 
     to {
         opacity: 1;
+    }
+}
+
+@keyframes sui-fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
     }
 }
